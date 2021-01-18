@@ -1,0 +1,73 @@
+<mvc:View
+  controllerName="joltdx.shenanigans.mandelbrot.controller.MandelbrotTable"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc">
+  <Panel
+    headerText="{i18n>settingsPanelTitle}"
+    width="auto">
+    <content>
+      <FlexBox
+        alignItems="Center">
+        <Label
+          text = "Table width:"
+          class="sapUiTinyMarginEnd"/>
+        <Input
+          type="Number"
+          value="{generalSettings>/sizeX}"
+          width="3rem"
+          class="sapUiSmallMarginEnd"/>
+        <Label
+          text = "Table height:"
+          class="sapUiTinyMarginEnd"/>
+        <Input
+          type="Number"
+          value="{generalSettings>/sizeY}"
+          width="3rem"
+          class="sapUiSmallMarginEnd"/>
+        <Label
+          text = "Table offset x:"
+          class="sapUiTinyMarginEnd"/>
+        <Input
+          type="Number"
+          value="{generalSettings>/offsetX}"
+          width="3rem"
+          class="sapUiSmallMarginEnd"/>
+        <Label
+          text = "Table offset y:"
+          class="sapUiTinyMarginEnd"/>
+        <Input
+          type="Number"
+          value="{generalSettings>/offsetY}"
+          width="3rem"
+          class="sapUiSmallMarginEnd"/>
+        <ToolbarSeparator
+          class="sapUiTinyMarginEnd"/>
+        <Label
+          text = "Zoom x:"
+          class="sapUiTinyMarginEnd"/>
+        <Input
+          type="Number"
+          value="{/settings/zoomX}"
+          width="3rem"
+          class="sapUiSmallMarginEnd"/>
+        <Label
+          text = "Zoom y:"
+          class="sapUiTinyMarginEnd"/>
+        <Input
+          type="Number"
+          value="{/settings/zoomY}"
+          width="3rem"
+          class="sapUiSmallMarginEnd"/>
+        <Button
+          text="{i18n>settingsButtonLetsGoText}"
+          press=".onSettingsLetsGo"/>
+      </FlexBox>
+    </content>
+  </Panel>
+  <Table
+    id="mandelbrotTable"
+    class="lowRowHeight"
+    width="100%"
+    showNoData="false">
+  </Table>
+</mvc:View>

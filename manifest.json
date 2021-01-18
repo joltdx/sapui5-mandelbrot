@@ -1,0 +1,52 @@
+{
+  "_version": "1.25.0",
+  "sap.app": {
+	"id": "joltdx.shenanigans.mandelbrot",
+	"type": "application",
+	"i18n": "i18n/i18n.properties",
+	"title": "{{appTitle}}",
+	"description": "{{appDescription}}",
+	"applicationVersion": {
+	  "version": "1.0.0"
+	}
+},
+  "sap.ui": {
+	"technology": "UI5",
+	"deviceTypes": {
+		"desktop": true,
+		"tablet": true,
+		"phone": true
+	}
+ },
+  "sap.ui5": {
+  	"rootView": {
+	  	"viewName": "joltdx.shenanigans.mandelbrot.view.App",
+		  "type": "XML",
+		  "async": true,
+		  "id": "app"
+	  },
+	  "dependencies": {
+	    "minUI5Version": "1.71",
+  	  "libs": {
+	  	  "sap.m": {}
+	    }
+	  },
+	  "models": {
+	    "i18n": {
+	  	  "type": "sap.ui.model.resource.ResourceModel",
+		    "settings": {
+		      "bundleName": "joltdx.shenanigans.mandelbrot.i18n.i18n",
+  		    "supportedLocales": [""],
+	  	    "fallbackLocale": ""
+		    }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    }
+  }
+}

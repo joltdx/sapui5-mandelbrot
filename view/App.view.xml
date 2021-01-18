@@ -1,0 +1,22 @@
+<mvc:View
+  controllerName="joltdx.shenanigans.mandelbrot.controller.App"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc"
+  displayBlock="true">
+  <Shell appWidthLimited="false">
+    <App
+      class="joltdxMandelbrot">
+      <pages>
+        <Page title="{i18n>startPageTitle}">
+          <headerContent>
+            <Button
+              icon="sap-icon://hello-world"/>
+          </headerContent>
+          <content>
+            <mvc:XMLView viewName="joltdx.shenanigans.mandelbrot.view.MandelbrotTable"/>
+          </content>
+        </Page>
+      </pages>
+    </App>
+  </Shell>
+</mvc:View>
