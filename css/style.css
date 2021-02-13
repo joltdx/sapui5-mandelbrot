@@ -1,3 +1,126 @@
-.joltdxMandelbrot .sapMListTblRow.lowRowHeight {
-  height: 12px;
+.joltdxMandelbrot .specialMandelbrotStyling .sapMListTblRow {
+  height: 1px;
+  line-height: 1px;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .sapMListTblCell {
+  padding: 0;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .sapMLIBShowSeparator>td {
+  border: 0;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .sapMListTbl .sapMText {
+  color: transparent;
+  height: 1px;
+  display: block;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .pink {
+  background-color: pink;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .black {
+  background-color: black;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col0 {
+  background-color: #000000;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col1 {
+  background-color: #240042;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col2 {
+  background-color: #2D0B46;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col3 {
+  background-color: #361649;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col4 {
+  background-color: #40214D;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col5 {
+  background-color: #492C50;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col6 {
+  background-color: #523754;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col7 {
+  background-color: #5B4357;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col8 {
+  background-color: #654E5B;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col9 {
+  background-color: #6E595F;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col10 {
+  background-color: #776462;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col11 {
+  background-color: #806F66;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col12 {
+  background-color: #897A69;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col13 {
+  background-color: #93856D;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col14 {
+  background-color: #9C9070;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col15 {
+  background-color: #A59B74;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col16 {
+  background-color: #AEA677;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col17 {
+  background-color: #B7B17B;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col18 {
+  background-color: #C1BC7F;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col19 {
+  background-color: #CAC882;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col20 {
+  background-color: #D3D386;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col21 {
+  background-color: #DCDE89;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col22 {
+  background-color: #E6E98D;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col23 {
+  background-color: #EFF490;
+}
+
+.joltdxMandelbrot .specialMandelbrotStyling .col24 {
+  background-color: #F8FF94;
 }

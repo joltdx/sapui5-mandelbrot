@@ -9,65 +9,60 @@
       <FlexBox
         alignItems="Center">
         <Label
-          text = "Table width:"
+          text = "{i18n>tableWidth}"
           class="sapUiTinyMarginEnd"/>
         <Input
           type="Number"
-          value="{generalSettings>/sizeX}"
-          width="3rem"
+          value="{/mandelbrot/sizeX}"
+          width="4rem"
           class="sapUiSmallMarginEnd"/>
         <Label
-          text = "Table height:"
+          text = "{i18n>tableHeight}"
           class="sapUiTinyMarginEnd"/>
         <Input
           type="Number"
-          value="{generalSettings>/sizeY}"
-          width="3rem"
+          value="{/mandelbrot/sizeY}"
+          width="4rem"
           class="sapUiSmallMarginEnd"/>
         <Label
-          text = "Table offset x:"
+          text = "{i18n>tableOffsetX}"
           class="sapUiTinyMarginEnd"/>
         <Input
           type="Number"
-          value="{generalSettings>/offsetX}"
-          width="3rem"
+          value="{/mandelbrot/offsetX}"
+          width="4rem"
           class="sapUiSmallMarginEnd"/>
         <Label
-          text = "Table offset y:"
+          text = "{i18n>tableOffsetY}"
           class="sapUiTinyMarginEnd"/>
         <Input
           type="Number"
-          value="{generalSettings>/offsetY}"
-          width="3rem"
-          class="sapUiSmallMarginEnd"/>
-        <ToolbarSeparator
-          class="sapUiTinyMarginEnd"/>
-        <Label
-          text = "Zoom x:"
-          class="sapUiTinyMarginEnd"/>
-        <Input
-          type="Number"
-          value="{/settings/zoomX}"
-          width="3rem"
+          value="{/mandelbrot/offsetY}"
+          width="4rem"
           class="sapUiSmallMarginEnd"/>
         <Label
-          text = "Zoom y:"
+          text = "{i18n>tableZoom}"
           class="sapUiTinyMarginEnd"/>
         <Input
           type="Number"
-          value="{/settings/zoomY}"
-          width="3rem"
+          value="{/mandelbrot/zoom}"
+          width="4rem"
           class="sapUiSmallMarginEnd"/>
         <Button
           text="{i18n>settingsButtonLetsGoText}"
-          press=".onSettingsLetsGo"/>
+          type="Accept"
+          press=".onSettingsLetsGo"
+          class="sapUiTinyMarginEnd"/>
+        <Button
+          text="{i18n>settingsButtonResetText}"
+          type="Attention"
+          press=".onSettingsReset"/>
       </FlexBox>
     </content>
   </Panel>
   <Table
     id="mandelbrotTable"
-    class="lowRowHeight"
-    width="100%"
-    showNoData="false">
-  </Table>
+    class="sapUiSizeCompact"
+    showNoData="false"
+    showSeparators="None"/>
 </mvc:View>

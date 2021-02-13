@@ -3,6 +3,15 @@ sap.ui.define([
 ], function (Controller) {
   "use strict"
   return Controller.extend("joltdx.shenanigans.mandelbrot.controller.App", {
-    onSomething: function () { }
+    onInit: function() {
+      this._appViewId = this.getView().getId();
+    },
+    getAppViewId() {
+      return this._appViewId;
+    },
+    onStartPageInfoButtonPress: function () {
+      const standardData = sap.ui.getCore().byId(this.getAppViewId()).byId("view.MandelbrotStandard").getModel().getData();
+      console.log(standardData);
+     }
   });
 });

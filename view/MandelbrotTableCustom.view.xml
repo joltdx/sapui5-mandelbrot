@@ -1,0 +1,82 @@
+<mvc:View
+  controllerName="joltdx.shenanigans.mandelbrot.controller.MandelbrotTableCustom"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc">
+  <Panel
+    headerText="{i18n>settingsPanelTitle}"
+    width="auto">
+    <content>
+      <FlexBox
+        alignItems="End">
+        <VBox class = "sapUiSmallMarginEnd">
+          <Label
+            text = "{i18n>tableWidth}"/>
+          <Input
+            type="Number"
+            value="{/mandelbrot/sizeX}"
+            width="6rem"/>
+        </VBox>
+        <VBox class = "sapUiSmallMarginEnd">
+          <Label
+            text = "{i18n>tableHeight}"
+            class="sapUiTinyMarginEnd"/>
+          <Input
+            type="Number"
+            value="{/mandelbrot/sizeY}"
+            width="6rem"
+            class="sapUiSmallMarginEnd"/>
+        </VBox>
+        <VBox class = "sapUiSmallMarginEnd">
+          <Label
+            text = "{i18n>tableCenterX}"
+            class="sapUiTinyMarginEnd"/>
+          <Input
+            type="Number"
+            value="{/mandelbrot/centerX}"
+            width="6rem"
+            class="sapUiSmallMarginEnd"/>
+        </VBox>
+        <VBox class = "sapUiSmallMarginEnd">
+          <Label
+            text = "{i18n>tableCenterY}"
+            class="sapUiTinyMarginEnd"/>
+          <Input
+            type="Number"
+            value="{/mandelbrot/centerY}"
+            width="6rem"
+            class="sapUiSmallMarginEnd"/>
+        </VBox>
+        <VBox class = "sapUiSmallMarginEnd">
+          <Label
+            text = "{i18n>tableZoom}"
+            class="sapUiTinyMarginEnd"/>
+          <Input
+            type="Number"
+            value="{/mandelbrot/zoom}"
+            width="6rem"
+            class="sapUiSmallMarginEnd"/>
+        </VBox>
+        <Button
+          text="{i18n>settingsButtonLetsGoText}"
+          type="Accept"
+          press=".onSettingsLetsGo"
+          class="sapUiTinyMarginEnd"/>
+        <Button
+          text="{i18n>settingsButtonResetText}"
+          type="Attention"
+          press=".onSettingsReset(1)"
+          class="sapUiTinyMarginEnd"/>
+        <Button
+          text="{i18n>settingsButtonResetSeahorseText}"
+          type="Attention"
+          press=".onSettingsReset(2)"/>
+      </FlexBox>
+    </content>
+  </Panel>
+  <Table
+    id="mandelbrotTable"
+    class="specialMandelbrotStyling"
+    growing="true"
+    showNoData="false"
+    showSeparators="None"/>
+</mvc:View>

@@ -10,10 +10,31 @@
         <Page title="{i18n>startPageTitle}">
           <headerContent>
             <Button
-              icon="sap-icon://hello-world"/>
+              icon="sap-icon://information"
+              press="onStartPageInfoButtonPress"/>
           </headerContent>
           <content>
-            <mvc:XMLView viewName="joltdx.shenanigans.mandelbrot.view.MandelbrotTable"/>
+            <IconTabBar
+              expandable="false">
+              <items>
+                <IconTabFilter
+                  text="{i18n>tabMandelbrotStandard}">
+                  <content>
+                    <mvc:XMLView
+                      id="view.MandelbrotStandard"
+                      viewName="joltdx.shenanigans.mandelbrot.view.MandelbrotTable"/>
+                  </content>
+                </IconTabFilter>
+                <IconTabFilter
+                  text="{i18n>tabMandelbrotCustom}">
+                  <content>
+                    <mvc:XMLView
+                      id="view.MandelbrotCustom"
+                      viewName="joltdx.shenanigans.mandelbrot.view.MandelbrotTableCustom"/>
+                  </content>
+                </IconTabFilter>
+              </items>
+            </IconTabBar>
           </content>
         </Page>
       </pages>

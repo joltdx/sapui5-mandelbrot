@@ -3,10 +3,9 @@ sap.ui.define([], function () {
 
   return {
     mandelbrotX(x, y, iter) {
-      // zn+1 = zn squared + c
-      const maxIterations = iter?iter:80;
+      // z(n+1) = z(n)(squared) + c
+      const maxIterations = iter?iter:241;
       let n = 0;
-      let z = 0;
       let a = x;
       let b = y;
       while (n < maxIterations) {
@@ -14,12 +13,12 @@ sap.ui.define([], function () {
         let bSquared = b * b;
         b = 2 * a * b + y;
         a = aSquared - bSquared + x;
-        if (Math.abs(a + b) > 16) {
+        n++;
+        if (aSquared + bSquared > 4) {
             break;
         }
-        n++
       }
-      return n === maxIterations;
+      return n === maxIterations ? 0 : Math.ceil(24 * n / maxIterations);
     }
   }
 })

@@ -39,6 +39,14 @@
   		    "supportedLocales": [""],
 	  	    "fallbackLocale": ""
 		    }
+      },
+	    "i18nPresetDialog": {
+	  	  "type": "sap.ui.model.resource.ResourceModel",
+		    "settings": {
+		      "bundleName": "joltdx.shenanigans.mandelbrot.i18n.i18nPresetDialog",
+  		    "supportedLocales": [""],
+	  	    "fallbackLocale": ""
+		    }
       }
     },
     "resources": {
