@@ -1,0 +1,4 @@
+specVersion: '2.3'
+metadata:
+  name: sapui5-mandelbrot
+type: application

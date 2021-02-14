@@ -1,0 +1,20 @@
+{
+  "name": "sapui5-mandelbrot",
+  "version": "1.0.0",
+  "description": "SAPUI5 shenanigans - Mandelbrot fractal in sap.m.Table Learning by doing. This is not right. But it's fun.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joltdx/sapui5-mandelbrot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/joltdx/sapui5-mandelbrot/issues"
+  },
+  "homepage": "https://github.com/joltdx/sapui5-mandelbrot#readme"
+}
