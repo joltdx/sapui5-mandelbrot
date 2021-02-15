@@ -69,7 +69,11 @@
         <Button
           text="{i18n>settingsButtonResetSeahorseText}"
           type="Attention"
-          press=".onSettingsReset(2)"/>
+          press=".onSettingsReset(2)"
+          class="sapUiTinyMarginEnd"/>
+        <Button
+          text="{i18n>settingsButtonPresetsDialogText}"
+          press=".onOpenPresetDialog"/>
       </FlexBox>
     </content>
   </Panel>

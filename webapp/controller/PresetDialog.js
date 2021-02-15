@@ -1,7 +1,8 @@
 sap.ui.define([
   "sap/ui/base/ManagedObject",
-  "sap/ui/core/Fragment"
-], function (ManagedObject, Fragment) {
+  "sap/ui/core/Fragment",
+  "sap/ui/model/json/JSONModel"
+], function (ManagedObject, Fragment, JSONModel) {
   "use strict";
 
   return ManagedObject.extend("joltdx.shenanigans.mandelbrot.controller.PresetDialog", {
@@ -13,11 +14,21 @@ sap.ui.define([
       delete this._oView;
     },
 
-    open: function () {
+    open: function (callingView) {
       const oView = this._oView;
+      this._presets = callingView.getModel().getData();
       if (!this.pDialog) {
         const oFragmentController = {
-          onCloseDialog: function () {
+          onInit: function(callingView) {
+            this._presets = callingView.getController()._presetSettings;
+            this.pDialog.setModel(this._presets);
+          },
+          onBeforeOpen: function() {
+            const presets = callingView.getModel("presets");
+            const presetsModel = new JSONModel(presets);
+            oView.byId("presetList").setModel(presetsModel);
+          },
+          onCancelDialog: function () {
             oView.byId("presetDialog").close();
           }
         };
@@ -32,6 +43,7 @@ sap.ui.define([
       }
       this.pDialog.then(function(oDialog) {
         oDialog.open();
+        console.log(callingView.getModel().getData());
       });
     }
   });

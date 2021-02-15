@@ -56,7 +56,11 @@
         <Button
           text="{i18n>settingsButtonResetText}"
           type="Attention"
-          press=".onSettingsReset"/>
+          press=".onSettingsReset"
+          class="sapUiTinyMarginEnd"/>
+        <Button
+          text="{i18n>settingsButtonPresetsDialogText}"
+          press=".onOpenPresetDialog"/>
       </FlexBox>
     </content>
   </Panel>

@@ -10,16 +10,18 @@ sap.ui.define([
     },
 
     onBeforeRendering: function () {
+      this._presetSettings = this.getView().getModel("defaultSettings").getData().mandelbrotCustom;
+      this.getView().getModel("presets").setData(this._presetSettings);
       this.onSettingsReset();
     },
 
     onSettingsReset: function (set) {
-      const defaultSettings = this.getView().getModel("defaultSettings").getData().mandelbrotCustom;
+      const defaultSettings = this.getView().getModel("presets").getData();
       let settings = {};
       if (set === undefined || set === 1) {
-        settings = defaultSettings.wholeSet;
+        settings = defaultSettings[0];
       } else {
-        settings = defaultSettings.seaHorseSpiral;
+        settings = defaultSettings[1];
       }
       const oData = {
         mandelbrot: {
@@ -32,6 +34,7 @@ sap.ui.define([
       };
       const oModel = new JSONModel(oData);
       this.getView().setModel(oModel);
+      
     },
 
     _mandelbrotColorFormatter: function (value) {
@@ -94,7 +97,11 @@ sap.ui.define([
       table.setModel(dataModel)
       console.log(new Date().toISOString() + ": Binding the items...");
       table.bindItems("/", columnListItems);
-      console.log(new Date().toISOString() + ": All done. Now stand by for browser handling of this shenanigans...");
+      console.log(new Date().toISOString() + ": All done. Now stand by for the browser to handle this shenanigans...");
+    },
+
+    onOpenPresetDialog: function () {
+      this.getOwnerComponent().openPresetDialog(this.getView(), this._presetSettings);
     }
   });
 });

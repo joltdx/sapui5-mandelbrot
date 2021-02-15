@@ -3,15 +3,23 @@
   xmlns:core="sap.ui.core">
   <Dialog
     id="presetDialog"
-    title="{i18nPresetDialog>titleText">
-    <content>
-
-    </content>
+    title="{i18nPresetDialog>titleText}"
+    beforeOpen=".onBeforeOpen">
     <beginButton>
       <Button
         text="{i18nPresetDialog>dialogCancelButtonText}"
-        type=sap.m.ButtonType.Reject
+        type="Reject"
         press=".onCancelDialog"/>
     </beginButton>
+    <content>
+      <List
+        id="presetList"
+        items="{presets>/}">
+        <items>
+          <ObjectListItem
+            title="{presets>name}" />
+        </items>
+      </List>
+    </content>
   </Dialog>
 </core:FragmentDefinition>

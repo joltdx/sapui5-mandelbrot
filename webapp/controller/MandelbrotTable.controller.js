@@ -1,9 +1,8 @@
 sap.ui.define([
   "sap/ui/core/mvc/Controller",
-  "sap/m/MessageToast",
   "sap/ui/model/json/JSONModel",
   "../modules/mandelbrotUtil"
-], function (Controller, MessageToast, JSONModel,mandelbrotUtil) {
+], function (Controller, JSONModel,mandelbrotUtil) {
   "use strict"
   return Controller.extend("joltdx.shenanigans.mandelbrot.controller.MandelbrotTable", {
     onInit: function () {
@@ -11,11 +10,13 @@ sap.ui.define([
     },
 
     onBeforeRendering: function () {
+      this._presetSettings = this.getView().getModel("defaultSettings").getData().mandelbrotStandard;
+      this.getView().getModel("presets").setData(this._presetSettings);
       this.onSettingsReset();
     },
 
     onSettingsReset: function () {
-      const defaultSettings = this.getView().getModel("defaultSettings").getData().mandelbrotStandard;
+      const defaultSettings = this.getView().getModel("presets").getData()[0];
       const oData = {
         mandelbrot: {
           sizeX: defaultSettings.sizeX,
@@ -55,6 +56,10 @@ sap.ui.define([
       const dataModel = new sap.ui.model.json.JSONModel(dataMandel);
       table.setModel(dataModel)
       table.bindItems("/",columnListItems);
+    },
+
+    onOpenPresetDialog: function () {
+      this.getOwnerComponent().openPresetDialog(this.getView(), this._presetSettings);
     }
   });
 });
