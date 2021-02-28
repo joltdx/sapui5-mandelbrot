@@ -11,25 +11,24 @@ sap.ui.define([
     },
 
     exit: function () {
+      if (this.pDialog) {
+        this.pDialog.destroy();
+      }
       delete this._oView;
     },
 
     open: function (callingView) {
       const oView = this._oView;
-      this._presets = callingView.getModel().getData();
       if (!this.pDialog) {
         const oFragmentController = {
-          onInit: function(callingView) {
-            this._presets = callingView.getController()._presetSettings;
-            this.pDialog.setModel(this._presets);
-          },
-          onBeforeOpen: function() {
-            const presets = callingView.getModel("presets");
-            const presetsModel = new JSONModel(presets);
-            oView.byId("presetList").setModel(presetsModel);
-          },
-          onCancelDialog: function () {
+          onCloseDialog: function (oEvent) {
             oView.byId("presetDialog").close();
+          },
+          onItemPress: function (oEvent) {
+            const mandelbrot = JSON.parse(JSON.stringify(oEvent.getSource().getBindingContext("presets").getObject().mandelbrot));
+            const chosenModel = oView.getModel("settingsDialogChosenPresets");
+            chosenModel.setData(mandelbrot);
+            this.onCloseDialog(oEvent);
           }
         };
         this.pDialog = Fragment.load({
@@ -41,9 +40,16 @@ sap.ui.define([
           return oDialog;
         });
       }
+
       this.pDialog.then(function(oDialog) {
+        const afterClose = oDialog.mEventRegistry.afterClose;
+        if (afterClose) {
+          afterClose.forEach(function (element) {
+            oDialog.detachAfterClose(element.fFunction);
+          });
+        }
+        oDialog.attachAfterClose(function () { callingView.getController().setChosenPresets(); } );
         oDialog.open();
-        console.log(callingView.getModel().getData());
       });
     }
   });

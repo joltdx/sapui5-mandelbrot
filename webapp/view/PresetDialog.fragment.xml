@@ -4,12 +4,13 @@
   <Dialog
     id="presetDialog"
     title="{i18nPresetDialog>titleText}"
-    beforeOpen=".onBeforeOpen">
+    beforeOpen=".onBeforeOpen"
+    afterClose=".onAfterClose">
     <beginButton>
       <Button
         text="{i18nPresetDialog>dialogCancelButtonText}"
         type="Reject"
-        press=".onCancelDialog"/>
+        press=".onCloseDialog"/>
     </beginButton>
     <content>
       <List
@@ -17,7 +18,9 @@
         items="{presets>/}">
         <items>
           <ObjectListItem
-            title="{presets>name}" />
+            title="{presets>name}"
+            type="Active"
+            press=".onItemPress" />
         </items>
       </List>
     </content>

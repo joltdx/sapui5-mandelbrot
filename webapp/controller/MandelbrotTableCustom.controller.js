@@ -6,44 +6,30 @@ sap.ui.define([
   "use strict"
   return Controller.extend("joltdx.shenanigans.mandelbrot.controller.MandelbrotTableCustom", {
     onInit: function () {
-
+      const presets = this.getOwnerComponent().getModel("defaultSettings").getData().mandelbrotCustom;
+      this.getView().setModel(new JSONModel());
+      this.setSettingsData(presets[0]);
     },
 
     onBeforeRendering: function () {
-      this._presetSettings = this.getView().getModel("defaultSettings").getData().mandelbrotCustom;
-      this.getView().getModel("presets").setData(this._presetSettings);
-      this.onSettingsReset();
+      console.log("custom, onbeforerendering");
+      const presetSettings = this.getView().getModel("defaultSettings").getData().mandelbrotCustom;
+      this.getView().getModel("presets").setData(presetSettings);
     },
 
-    onSettingsReset: function (set) {
-      const defaultSettings = this.getView().getModel("presets").getData();
-      let settings = {};
-      if (set === undefined || set === 1) {
-        settings = defaultSettings[0];
-      } else {
-        settings = defaultSettings[1];
-      }
-      const oData = {
-        mandelbrot: {
-          sizeX: settings.sizeX,
-          sizeY: settings.sizeY,
-          centerX: settings.centerX,
-          centerY: settings.centerY,
-          zoom: settings.zoom
-        }
-      };
-      const oModel = new JSONModel(oData);
-      this.getView().setModel(oModel);
-      
+    onSettingsReset: function () {
+      const presets = this.getView().getModel("presets").getData();
+      this.setSettingsData(presets[0]);
+    },
+
+    setSettingsData: function (settings) {
+      const decoupled = JSON.parse(JSON.stringify(settings.mandelbrot));
+      this.getView().getModel().setData({ mandelbrot: decoupled });
     },
 
     _mandelbrotColorFormatter: function (value) {
-      if (value < 25) {
-        const cssClassName = "col" + value;
-        this.addStyleClass(cssClassName);
-      } else {
-        this.addStyleClass("col0");
-      }
+      const cssClassName = value < 25 ? "col" + value : "col0";
+      this.addStyleClass(cssClassName);
       return value;
     },
 
@@ -68,8 +54,8 @@ sap.ui.define([
       const parameters = this._getMandelParameters();
 
       const table = this.getView().byId("mandelbrotTable");
+      table.destroyItems();
       table.destroyColumns();
-      table.getModel().destroy();
 
       const dataMandel = [];
       for (let y = 0; y < parameters.sizeY; y++) {
@@ -93,7 +79,7 @@ sap.ui.define([
       }
       table.addColumn(new sap.m.Column("spacerColumnCustom"));
       console.log(new Date().toISOString() + ": Setting the JSONModel...");
-      const dataModel = new sap.ui.model.json.JSONModel(dataMandel);
+      const dataModel = new JSONModel(dataMandel);
       table.setModel(dataModel)
       console.log(new Date().toISOString() + ": Binding the items...");
       table.bindItems("/", columnListItems);
@@ -101,7 +87,12 @@ sap.ui.define([
     },
 
     onOpenPresetDialog: function () {
-      this.getOwnerComponent().openPresetDialog(this.getView(), this._presetSettings);
+      this.getOwnerComponent().openPresetDialog(this.getView());
+    },
+
+    setChosenPresets: function () {
+      const chosenPresets = JSON.parse(JSON.stringify(this.getView().getModel("settingsDialogChosenPresets").getData()));
+      this.getView().getModel().setData({mandelbrot: chosenPresets}); 
     }
   });
 });

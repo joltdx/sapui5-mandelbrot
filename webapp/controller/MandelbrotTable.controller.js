@@ -6,28 +6,34 @@ sap.ui.define([
   "use strict"
   return Controller.extend("joltdx.shenanigans.mandelbrot.controller.MandelbrotTable", {
     onInit: function () {
-
+      const presets = this.getOwnerComponent().getModel("defaultSettings").getData().mandelbrotStandard;
+      this.getView().setModel(new JSONModel());
+      this.setSettingsData(presets[0]);
     },
 
     onBeforeRendering: function () {
       this._presetSettings = this.getView().getModel("defaultSettings").getData().mandelbrotStandard;
       this.getView().getModel("presets").setData(this._presetSettings);
-      this.onSettingsReset();
+      //if (this.getView().getModel().getData() === {}) {
+      //  this.onSettingsReset();
+      //}
     },
 
-    onSettingsReset: function () {
+    onSettingsResetoooold: function () {
       const defaultSettings = this.getView().getModel("presets").getData()[0];
-      const oData = {
-        mandelbrot: {
-          sizeX: defaultSettings.sizeX,
-          sizeY: defaultSettings.sizeY,
-          offsetX: defaultSettings.offsetX,
-          offsetY: defaultSettings.offsetY,
-          zoom: defaultSettings.zoom
-        }
-      };
-      const oModel = new JSONModel(oData);
-      this.getView().setModel(oModel);
+      const decoupled = JSON.parse(JSON.stringify(defaultSettings.mandelbrot));
+      const data = { mandelbrot: decoupled };
+      this.getView().getModel().setData(data);
+    },
+    
+    onSettingsReset: function () {
+      const presets = this.getView().getModel("presets").getData();
+      this.setSettingsData(presets[0]);
+    },
+
+    setSettingsData: function (settings) {
+      const decoupled = JSON.parse(JSON.stringify(settings.mandelbrot));
+      this.getView().getModel().setData({ mandelbrot: decoupled });
     },
 
     onSettingsLetsGo: function () {
@@ -59,7 +65,13 @@ sap.ui.define([
     },
 
     onOpenPresetDialog: function () {
-      this.getOwnerComponent().openPresetDialog(this.getView(), this._presetSettings);
+      this.getOwnerComponent().openPresetDialog(this.getView());
+    },
+
+    setChosenPresets: function () {
+      const chosenPresets = JSON.parse(JSON.stringify(this.getView().getModel("settingsDialogChosenPresets").getData()));
+      this.getView().getModel().setData({mandelbrot: chosenPresets});
+      this.getView().getModel().refresh();
     }
   });
 });

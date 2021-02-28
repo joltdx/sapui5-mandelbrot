@@ -12,7 +12,7 @@ sap.ui.define([], function () {
         let aSquared = a * a;
         let bSquared = b * b;
         b = 2 * a * b + y;
-        a = aSquared - bSquared + x;
+        a = ( aSquared - bSquared ) + x;
         n++;
         if (aSquared + bSquared > 4) {
             break;

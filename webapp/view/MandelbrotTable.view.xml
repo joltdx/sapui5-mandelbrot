@@ -28,12 +28,13 @@
           text = "{i18n>tableOffsetX}"
           class="sapUiTinyMarginEnd"/>
         <Input
+          id="offsetXInput"
           type="Number"
           value="{/mandelbrot/offsetX}"
           width="4rem"
           class="sapUiSmallMarginEnd"/>
         <Label
-          text = "{i18n>tableOffsetY}"
+          text="{i18n>tableOffsetY}"
           class="sapUiTinyMarginEnd"/>
         <Input
           type="Number"

@@ -64,12 +64,7 @@
         <Button
           text="{i18n>settingsButtonResetText}"
           type="Attention"
-          press=".onSettingsReset(1)"
-          class="sapUiTinyMarginEnd"/>
-        <Button
-          text="{i18n>settingsButtonResetSeahorseText}"
-          type="Attention"
-          press=".onSettingsReset(2)"
+          press=".onSettingsReset"
           class="sapUiTinyMarginEnd"/>
         <Button
           text="{i18n>settingsButtonPresetsDialogText}"
@@ -83,4 +78,8 @@
     growing="true"
     showNoData="false"
     showSeparators="None"/>
+  <MessageStrip
+    text="{i18n>messageStripWarningText}"
+    type="Information"
+    showIcon="true" />
 </mvc:View>
