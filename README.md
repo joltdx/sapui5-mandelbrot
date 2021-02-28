@@ -52,5 +52,4 @@ I want to do these things "sometime in the future":
 
 [Libraries and themes](https://openui5.hana.ondemand.com/topic/38ff8c27b022475a92b591bcf6262551)
 
-
-
+[UI5 init and UI5 serve](https://sap.github.io/ui5-tooling/pages/CLI/)
