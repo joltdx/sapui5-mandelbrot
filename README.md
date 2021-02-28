@@ -1,7 +1,10 @@
 # sapui5-mandelbrot
 SAPUI5 shenanigans - Mandelbrot fractal in sap.m.Table
+
 Learning by doing.
+
 This is not right.
+
 But it's fun.
 
 ![image](https://user-images.githubusercontent.com/74537631/109410639-85b4a680-799c-11eb-9242-3989c26fde2f.png)
